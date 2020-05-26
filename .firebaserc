@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "schucko-dd539": {
+      "hosting": {
+        "schucko": [
+          "schucko-dd539"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "schucko-dd539"
+  }
+}
