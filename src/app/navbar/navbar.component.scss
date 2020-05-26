@@ -1,0 +1,54 @@
+@import 'src/variables.scss';
+.navbar {
+    display: flex;
+    height: 120px;
+    width: 100%;
+    background-color: #ffffff;
+    font-size: 16px;
+
+    &__logo{
+        width: 15%;
+        margin-left: 40px;
+    }
+    &__links{
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+    }
+    
+    &__text{
+        display: flex;
+        width: 55%;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-left: 45%;
+        font-weight: 700;
+
+        a {
+            color: black;
+        }
+        a:hover {
+            color: $font-secondary;
+            text-decoration: none;
+        }
+    }
+    &__navigation{
+        display: flex;
+        height: 100%;
+        width: 70%;
+        border-right: solid 1px #e6e6e6;
+        align-items: center;
+    }
+    &__divided{
+        display: flex;
+        width: 30%;
+        justify-content: SPACE-AROUND;
+        align-items: center;
+        font-weight: 700;
+        img {
+            height: 40px;
+            width: 40px;
+            margin-bottom: 40%;
+        }
+    }
+}
