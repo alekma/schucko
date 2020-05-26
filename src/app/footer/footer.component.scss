@@ -1,0 +1,53 @@
+@import 'src/variables.scss';
+
+.footer {
+  background-color: $font-dark;
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 45px;
+  }
+
+  &__links {
+    width: 40%;
+    display: flex;
+    align-items: center;
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+      width: 100%;
+      margin-bottom: 0;
+
+      li {
+        color: $font-secondary;
+        cursor: pointer;
+        &:hover {
+            color: $font-light;
+        }
+      }
+    }
+  }
+  &__divider {
+      border-bottom: 1px solid #1d1d1d;
+      padding-bottom: 45px;
+  }
+
+  &__bottom {
+      display: flex;
+      justify-content: space-between;
+      padding: 45px 0;
+
+      p {
+          font-size: 15px;
+          color: $font-light;
+          margin-bottom: 0;
+      }
+  }
+  &__address  {
+      text-align: right;
+  }
+}
