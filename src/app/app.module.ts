@@ -12,6 +12,12 @@ import { ProductComponent } from './product/product.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialsModule } from './materials/materials.module';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from 'src/environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +32,11 @@ import { MaterialsModule } from './materials/materials.module';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialsModule
+    MaterialsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
