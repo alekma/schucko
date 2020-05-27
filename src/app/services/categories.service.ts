@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
-import { Categorie } from '../models/categories';
+
 
 
 @Injectable({
@@ -9,7 +9,7 @@ import { Categorie } from '../models/categories';
 export class CategoriesService {
 
   private dbPath = '/categories';
-  categorieRef: AngularFireList<Categorie> = null;
+  categorieRef: AngularFireList<any> = null;
 
   
 
@@ -19,7 +19,7 @@ export class CategoriesService {
 
   
 
-  getCategoriesList(): AngularFireList<Categorie> {
+  getCategoriesList(): AngularFireList<any> {
     return this.categorieRef;
   }
 

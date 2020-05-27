@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild  } from '@angular/core';
 import { CategoriesService } from 'src/app/services/categories.service';
-import { Categorie } from 'src/app/models/categories';
 import { map } from 'rxjs/operators';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
@@ -32,7 +31,7 @@ export class CategoriesComponent implements OnInit {
         )
       )
     ).subscribe(res => {
-      this.dataSource = new MatTableDataSource<Categorie>(res);
+      this.dataSource = new MatTableDataSource<any>(res);
       this.dataSource.paginator = this.paginator;
     });   
     
