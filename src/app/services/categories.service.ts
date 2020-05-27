@@ -27,5 +27,7 @@ export class CategoriesService {
     const itemsRef = this.db.list('categories');
     itemsRef.push({ name: categorie });
   }
-  
+  deleteCategorie(key) {
+    return this.categorieRef.remove(key);
+  }
 }

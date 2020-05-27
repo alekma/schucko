@@ -21,6 +21,7 @@ import { environment } from 'src/environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CategoriesComponent } from './admin/categories/categories.component';
 import { FormsModule } from '@angular/forms';
+import { MatConfirmDialogComponent } from './admin/mat-confirm-dialog/mat-confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { FormsModule } from '@angular/forms';
     ProductsComponent,
     ProductComponent,
     CategoriesComponent,
+    MatConfirmDialogComponent,
     
   ],
   imports: [
@@ -48,6 +50,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [MatConfirmDialogComponent]
 })
 export class AppModule { }
