@@ -1,0 +1,14 @@
+<mat-sidenav-container class="example-container" >
+    <mat-sidenav #sidenav opened mode='side'>
+        <ul>
+            <li (click)="showCategory()">Kategorie</li>
+            <li (click)="showProductList()">Lista produktów</li>
+            <li (click)="addProduct()">Dodaj produkt</li>
+            <li (click)="parameters()">Parametry</li>
+            <li (click)="media()">Zdjęcia</li>
+        </ul>
+    </mat-sidenav>
+    <mat-sidenav-content><router-outlet></router-outlet>
+        <p class="menu" (click)="sidenav.toggle()">MENU</p>
+    </mat-sidenav-content>    
+  </mat-sidenav-container>

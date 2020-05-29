@@ -20,8 +20,14 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CategoriesComponent } from './admin/categories/categories.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatConfirmDialogComponent } from './admin/mat-confirm-dialog/mat-confirm-dialog.component';
+import { AddProductComponent } from './admin/products/add-product/add-product.component';
+import { AdminComponent } from './admin/admin/admin.component';
+import { ProductsListComponent } from './admin/products/products-list/products-list.component';
+import { ParametersComponent } from './admin/parameters/parameters.component';
+import { MediaComponent } from './admin/media/media.component';
+
 
 @NgModule({
   declarations: [
@@ -34,7 +40,11 @@ import { MatConfirmDialogComponent } from './admin/mat-confirm-dialog/mat-confir
     ProductComponent,
     CategoriesComponent,
     MatConfirmDialogComponent,
-    
+    AddProductComponent,
+    AdminComponent,
+    ProductsListComponent,
+    ParametersComponent,
+    MediaComponent   
   ],
   imports: [
     BrowserModule,
@@ -47,7 +57,8 @@ import { MatConfirmDialogComponent } from './admin/mat-confirm-dialog/mat-confir
     AngularFireAuthModule,    
     AngularFireDatabaseModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

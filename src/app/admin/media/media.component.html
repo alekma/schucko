@@ -1,0 +1,22 @@
+<div class="component">
+  <h2>Zdjęcia</h2>
+  <form [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
+    <div class="addMedia">
+        <div class="inputPhoto">  
+      <input type="file" accept="image/*" formControlName="imageUrl" #imageUrl (change)="showPreview($event)">
+      <button mat-raised-button color="primary" type="submit" >
+        <mat-icon>save_alt</mat-icon>Zapisz
+      </button>
+    </div> 
+    <mat-progress-bar  *ngIf="progressBar" mode="determinate" value="{{progressBar}}"></mat-progress-bar> 
+      
+      <div class="text-danger" *ngIf="isSubmited && formControls.imageUrl.errors?.required">To pole jest wymagane.</div>
+    </div>
+  </form>
+  <div class="gallery" >
+      <div class="imgBox" *ngFor="let image of imageList">
+        <img  class="singleImg" src="{{image.imageUrl}}">
+        <mat-icon class="deleteImg" (click)="delete(image)">clear</mat-icon>
+      </div>
+  </div>
+</div>
