@@ -15,7 +15,7 @@
   </form>
   <div class="gallery" >
       <div class="imgBox" *ngFor="let image of imageList">
-        <img  class="singleImg" src="{{image.imageUrl}}">
+        <img  class="singleImg" src="{{image.imageUrl}}" (click)="onClick(image)">
         <mat-icon class="deleteImg" (click)="delete(image)">clear</mat-icon>
       </div>
   </div>

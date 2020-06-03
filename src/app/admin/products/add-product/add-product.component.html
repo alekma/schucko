@@ -1,11 +1,49 @@
 <div class="container">
-    <h2>Dodaj produkt</h2>
-    <div class="row">
-        <div class="col-8">
-
-        </div>
-        <div class="col-4">
-
-        </div>
+  <h2>Dodaj produkt</h2>
+  <div class="row">
+    <div class="col-8">
+      <form [formGroup]="form">
+        <mat-form-field class="full-width">
+          <mat-label>Nazwa produktu</mat-label>
+          <input matInput name="name" formControlName="name">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Kategoria</mat-label>
+          <mat-select name="category" (selectionChange)="catChange($event.value)">
+            <mat-option *ngFor="let cat of categories" [value]="cat.name" >
+              {{cat.name}}
+            </mat-option>
+          </mat-select>          
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Opis produktu</mat-label>
+          <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Url zdjęcia</mat-label>
+          <input matInput (click)="openDialog()" formControlName="imgUrl">
+        </mat-form-field>
+        <h3>Parametry produktu</h3>
+        <mat-form-field class="full-width" *ngFor="let item of parameter" formGroupName="para">
+          <mat-label>{{item.name}}</mat-label>
+          <input matInput formControlName="{{item.name}}">
+        </mat-form-field>
+        <button [disabled]="form.invalid" class="btn btn-primary float-right" type="submit" (click)="onSubmit(form.value)">Zapisz</button>
+      </form>
     </div>
+    <div class="col-4">
+      <mat-card class="example-card" *ngIf="form.get(['imgUrl']).value">
+        <mat-card-header>
+          <mat-card-title>{{form.get(['name']).value }}</mat-card-title>
+          <mat-card-subtitle>{{form.get(['category']).value }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="{{form.get(['imgUrl']).value }}">
+        <mat-card-content>
+          <p>
+            {{form.get(['description']).value }}
+          </p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
 </div>
