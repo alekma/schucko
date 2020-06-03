@@ -62,6 +62,6 @@ import { MediaComponent } from './admin/media/media.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [MatConfirmDialogComponent]
+  entryComponents: [MatConfirmDialogComponent, MediaComponent]
 })
 export class AppModule { }

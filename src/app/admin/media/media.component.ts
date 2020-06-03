@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Optional } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize, map } from 'rxjs/operators';
 import { ImageService } from 'src/app/services/image.service';
+import { DialogService } from 'src/app/services/dialog.service';
+import {MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'media',
@@ -21,7 +23,7 @@ export class MediaComponent implements OnInit {
     imageUrl: new FormControl('', Validators.required)
   })
 
-  constructor(private storage: AngularFireStorage, private imageService: ImageService) { }
+  constructor(private storage: AngularFireStorage, private imageService: ImageService, private dialogService: DialogService, @Optional() private dialogRef: MatDialogRef<MediaComponent> ) { }
 
   ngOnInit(): void {
     this.resetForm();
@@ -63,12 +65,12 @@ export class MediaComponent implements OnInit {
           })
         })
       ).subscribe(res => {
-        this.progressBar = (res.bytesTransferred / res.totalBytes) * 100 ; 
-        if(this.progressBar === 100) {
+        this.progressBar = (res.bytesTransferred / res.totalBytes) * 100;
+        if (this.progressBar === 100) {
           this.progressBar = null;
-        }  
+        }
       });
-      
+
     }
   }
   get formControls() {
@@ -84,9 +86,18 @@ export class MediaComponent implements OnInit {
     this.selectedImage = null;
     this.isSubmited = false;
   }
-  delete(image) {  
-    var fileRef = this.storage.ref(`/images/${image.fileName}`);
-    fileRef.delete();
-    this.imageService.deleteImage(image.key); 
+  delete(image) {
+    this.dialogService.openConfirmDialog('Czy jesteś piewien, że chcesz usunąć to zdjęcie?').afterClosed().subscribe(res => {
+      if (res) {
+        var fileRef = this.storage.ref(`/images/${image.fileName}`);
+        fileRef.delete();
+        this.imageService.deleteImage(image.key);
+      }
+    });
+  }
+  onClick(image) {
+    if(this.dialogRef) {
+      this.dialogRef.close(image);
+    }    
   }
 }
